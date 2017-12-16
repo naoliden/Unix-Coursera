@@ -1,27 +1,33 @@
 echo "How many files are there in the current directory?"
 
-count=1
-files=$(ls)
-number=${#files}
+var=1
+count=0
+
+for file in $(ls)
+do
+        let count=$count+1
+done
 
 function guess_game {
-if [[ $1 -eq $number ]]
+if [[ $1 -eq $count ]]
 then
 	echo "You win"
-	let count=0
+	let var=0
 	
-elif [[ $1 -gt $number ]]
+elif [[ $1 -gt $count ]]
 then
 	echo "No, try with a lower number"
-elif [[ $1 -lt $number ]]
+elif [[ $1 -lt $count ]]
 then
 	echo "No, try with a higher number"
 fi
 }
 
-while [[ $count -eq 1 ]]
+
+while [[ $var -eq 1 ]]
 do
-	echo $number
+	echo "Enter your guess"
 	read guess
 	guess_game $guess
 done
+
