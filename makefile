@@ -1,7 +1,10 @@
 README.md: guessinggame.sh
-	echo "The link to the repo is: https://github.com/norman123123/Unix-Coursera" > README.md
-	echo "The date is $(shell date)" >> README.md
-	echo "There are $(shell wc -l guessinggame.sh | egrep -o "[0-9]+") lines in the guessinggame.sh file" >> README.md
-
+	echo "<html>" >> README.md
+	echo "<body>" >> README.md
+	echo "<h1> Peer graded assignment </h1>" >> README.md
+	echo "<h3> The date is $(shell date)" >> README.md
+	echo "There are $(shell wc -l guessinggame.sh | egrep -o "[0-9]+") lines in the guessinggame.sh file </h3>" >> README.md
+	echo "</body>" >> README.md
+	echo "</html>" >> README.md
 clean:
 	rm README.md
